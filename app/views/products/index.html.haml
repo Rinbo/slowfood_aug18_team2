@@ -1,2 +1,9 @@
-%h1 Products#index
-%p Find me in app/views/products/index.html.haml
+%section.container
+  %h1 Food store
+  %div.wrapper
+    - @products.each do |product|
+      %div.foodTile
+        %p= product.name
+        %p= product.description
+        %p= product.price
+    
