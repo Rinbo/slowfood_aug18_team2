@@ -7,5 +7,5 @@ Feature: View landing page
     Given I visit the landing page
     Then I should see "Le Délicieux"
     And I should see "Best Selling Products"
-    And I should see "Copyright © Slowfood"
+    And I should see "Copyright &copy Slowfood"
     And I should see "We invited the best chefs all over the world to serve you the best food"
