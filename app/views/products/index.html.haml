@@ -1,0 +1,9 @@
+%section.container
+  %h1 Food store
+  %div.wrapper
+    - @products.each do |product|
+      %div.food-tile{id: dom_id(product)}
+        %p= product.name
+        %p= product.description
+        %p= number_to_currency(product.price, unit: "kr", format: "%n %u")
+    
