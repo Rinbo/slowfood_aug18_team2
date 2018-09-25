@@ -9,7 +9,6 @@ Feature: View products
         | Pizza1       | Cheesy         |   5   |
         | Pizza2       | Spicy          |   30  |
   
-  @javascript
   Scenario: View list of articles on the product page
     Given I visit the product page
     Then I should see "Food store"
