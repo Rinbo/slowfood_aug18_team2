@@ -1,4 +1,3 @@
-class Product < ApplicationRecord
-  validates :name, presence: true
-  validates :price, presence: true
+class Product < ApplicationRecord  
+  validates_presence_of :price, :name
 end
