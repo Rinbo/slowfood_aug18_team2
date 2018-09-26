@@ -16,3 +16,10 @@ Then("stop") do
   binding.pry
 end
 
+When("I click {string} button on {string} product") do |string, string2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+
+

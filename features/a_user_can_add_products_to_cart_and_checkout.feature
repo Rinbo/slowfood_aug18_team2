@@ -11,7 +11,9 @@ Background:
     And I visit the product page
     
 Scenario: A user can add products to cart 
-    When I click on "Pizza1" "add to cart" button
+    When I click "add to cart" button on  "Pizza1" product
+    And I click "add to cart" button on  "Pizza2" product
+    Then I should have "2" procucts in my cart
        
 
 
