@@ -16,15 +16,25 @@ Chromedriver.set_version '2.36' unless ENV['CI'] == 'true'
 chrome_options = %w(no-sandbox disable-popup-blocking disable-infobars)
 chrome_options << 'headless' if ENV['CI'] == 'true'
 
+# Capybara.register_driver :chrome do |app|
+#   options = Selenium::WebDriver::Chrome::Options.new(
+#       args: chrome_options
+#   )
+#   Capybara::Selenium::Driver.new(
+#       app,
+#       browser: :chrome,
+#       options: options
+#   )
+# end
+
 Capybara.register_driver :chrome do |app|
-  options = Selenium::WebDriver::Chrome::Options.new(
-      args: chrome_options
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: {
+          args: %w[ headless no-sandbox disable-popup-blocking ]
+      }
   )
-  Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      options: options
-  )
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
 end
 
 Capybara.server = :puma
