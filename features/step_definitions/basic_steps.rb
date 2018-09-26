@@ -16,8 +16,28 @@ Then("stop") do
   binding.pry
 end
 
-When("I click {string} button on {string} product") do |string, string2|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I click {string} button on {string} product") do |link_name, product_name|
+  product = Product.find_by(name: product_name)
+  within("#product_#{product.id}") do 
+    click_on link_name
+  end  
+end
+
+Given("the following users exist") do |table|
+  table.hashes.each do |user_hash|
+    create(:user, user_hash)
+  end
+  
+end
+
+Given("I am logged in as {string}") do |user_name|
+  @user = User.find_by(name: user_name)
+  login_as @user
+end
+
+Then("I should have {string} products in my cart") do |number|
+  #binding.pry
+  #expect(@user.orders.first.order_items.count).to eq number  
 end
 
 
