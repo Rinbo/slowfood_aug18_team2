@@ -1,10 +1,26 @@
 %section.container
   %h1 Food store
   %div.wrapper
-    - @products.each do |product|
-      %div.food-tile{id: dom_id(product)}
-        %p= product.name
-        %p= product.description
-        %p= number_to_currency(product.price, unit: "kr", format: "%n %u")
-        %p= add_to_cart(product)        
+
+  %div.wrapper
+    %button.tabs{:onclick => "openDiv('starter')"} Starter
+    %button.tabs{:onclick => "openDiv('maincourse')"} Main Course
+    %button.tabs{:onclick => "openDiv('desserts')"} Desserts
+    %button.tabs{:onclick => "openDiv('sides')"} Side Orders and Drinks
+  
+    #starter.tabCategory{:style => "display:block"}
+      - @products.each do |product|
+        %div.food-tile{id: dom_id(product)}
+          %p= product.name
+          %p= product.description
+          %p= number_to_currency(product.price, unit: "kr", format: "%n %u")
+          %p= add_to_cart(product)        
     
+    #maincourse.tabCategory
+      %p here all main
+
+    #desserts.tabCategory
+      %p here all desserts
+
+    #sides.tabCategory
+      %p here all sides

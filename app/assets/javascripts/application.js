@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require cartify/application
 //= require_tree .
+function openDiv(cat) {
+    let i, tabCategory;
+    tabCategory = document.getElementsByClassName("tabCategory");
+    for (i = 0; i < tabCategory.length; i++) {
+        tabCategory[i].style.display = "none";
+        }
+        document.getElementById(cat).style.display = "block";
+    }
+    document.getElementsByClassName("tabs")[0].click()
