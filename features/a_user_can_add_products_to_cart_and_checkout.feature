@@ -5,13 +5,13 @@ Feature: Checkout Products
     I would like to be presented with a checkout page
 
 Background: 
-     Given the following products exists
+    Given the following products exists
         | name         | description    | price |
         | Pizza1       | Cheesy         |   5   |
         | Pizza2       | Spicy          |   30  |
     And the following users exist
-        | name         | email                |       
-        | Robin        | robin@example.com    |
+        | name         | email                  |       
+        | Robin        | robin@example.com      |
     And I am logged in as "Robin"
     And I visit the product page
     

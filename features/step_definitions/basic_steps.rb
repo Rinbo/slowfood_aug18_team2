@@ -4,6 +4,12 @@ Given("the following products exists") do |table|
   end
 end
 
+Given("the following categories exists") do |table|
+  table.hashes.each do |category_hash|
+    create(:category, category_hash)
+  end 
+end
+
 Given("I visit the landing page") do
   visit root_path
 end 
