@@ -1,6 +1,6 @@
 Feature: Product Categories
   As a user
-  In order make it easier to find what I want
+  In order to make it easier to find what I want
   I would like to see a list of items ordered by category
 
   Background: 
