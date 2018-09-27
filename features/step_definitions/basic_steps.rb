@@ -35,10 +35,7 @@ Given("I am logged in as {string}") do |user_name|
   login_as @user
 end
 
-Then("I should have {string} products in my cart") do |number|
-  #binding.pry
-  #expect(@user.orders.first.order_items.count).to eq number  
-end
+
 
 
 
