@@ -1,8 +1,9 @@
 .navbar   
     %ul
-        = link_to "Products", products_path
+        %a{href: "products#show"} Products
         %li 
             = shop_icon_quantity
-            = link_to(image_tag('cart.png'), "/checkout")
-            %a{href: "/users/sign_in"} Login
+            %a{href:"/checkout/"} 
+                %img(src="cart.png")
+            %a{href: "products#show"} Login
             %a{href: "/users/sign_up"} Signup
