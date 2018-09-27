@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_133807) do
+ActiveRecord::Schema.define(version: 2018_09_27_145901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,12 +80,20 @@ ActiveRecord::Schema.define(version: 2018_09_26_133807) do
     t.index ["order_status_id"], name: "index_cartify_orders_on_order_status_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,4 +115,5 @@ ActiveRecord::Schema.define(version: 2018_09_26_133807) do
   add_foreign_key "cartify_orders", "cartify_credit_cards", column: "credit_card_id"
   add_foreign_key "cartify_orders", "cartify_deliveries", column: "delivery_id"
   add_foreign_key "cartify_orders", "cartify_order_statuses", column: "order_status_id"
+  add_foreign_key "products", "categories"
 end

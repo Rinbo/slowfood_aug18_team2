@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable  
 
   has_many :orders, class_name: 'Cartify::Order', foreign_key: :user_id
   has_one :billing, class_name: 'Cartify::Billing', foreign_key: :user_id
