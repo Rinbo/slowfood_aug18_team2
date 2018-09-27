@@ -3,6 +3,6 @@
         = link_to "Products", products_path
         %li 
             = shop_icon_quantity
-            = link_to(image_tag('cart.png'), "https://www.w3schools.com/css/css_link.asp")
-            %a{href: "#"} Login
-            %a{href: "#"} Signup
+            = link_to(image_tag('cart.png'), "/checkout")
+            %a{href: "/users/sign_in"} Login
+            %a{href: "/users/sign_up"} Signup
