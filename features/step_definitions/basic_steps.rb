@@ -1,11 +1,9 @@
 Given("the following products exists") do |table|
   table.hashes.each do |product_hash|    
-    category = Category.find_by(group: product_hash[:category])
+    category = Category.find_by(name: product_hash[:category])
     product_hash.except!("category")
-    create(:product, product_hash.merge(category: category))
-    
-  end
-  
+    create(:product, product_hash.merge(category: category))    
+  end  
 end
 
 Given("the following categories exists") do |table|

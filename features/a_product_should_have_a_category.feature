@@ -5,7 +5,7 @@ Feature: Product Categories
 
   Background: 
     Given the following categories exists
-    | group      |
+    | name      |
     | Starter    |
     | Main       |
     | Dessert    |
@@ -18,7 +18,7 @@ Feature: Product Categories
           | Cheese Stick | Spicy          |   30  |  Starter    |
           | Tomato       | Spicy          |   30  |  Starter    |
           | Cream        | Spicy          |   30  |  Dessert    |
-    
+
   Scenario: A product should have a category
     Given I visit the landing page
     Then I should see "5.00 kr" for "Pizza1"

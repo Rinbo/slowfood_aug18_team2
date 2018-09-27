@@ -10,7 +10,6 @@
     %div.grid-container
         - @categories.each do |category|
             %div.grid-content{id: dom_id(category.products.first)}
-                -binding.pry
                 %p= category.products.first.name
                 %p= category.products.first.description
                 %p= number_to_currency(category.products.first.price, unit: "kr", format: "%n %u")
