@@ -7,11 +7,11 @@
 
 %section.container#BestSeller
     %h1 Best Selling Products
-    %div.gridContainer
-        %div.gridContent
-            %p Best Seller n.1
-
-        %div.gridContent
-            %p Best Seller n.1
-        %div.gridContent
-            %p Best Seller n.1
+    %div.grid-container
+        - @best_seller.products.each do |product|
+            %div.grid-content{id: dom_id(product)}
+                %p= product.name
+                %p= product.description
+                %p= product.price
+                %p= add_to_cart(product)  
+            

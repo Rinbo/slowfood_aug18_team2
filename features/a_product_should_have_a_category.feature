@@ -8,10 +8,10 @@ Feature: Product Categories
     | group      |
     | Bestseller |
   
-    And the following products exists
-          | name         | description    | price | category_id |
-          | Pizza1       | Cheesy         |   5   |  1          |
-          | Pizza2       | Spicy          |   30  |  1          |
+    Given the following products exists    
+          | name         | description    | price | category    |
+          | Pizza1       | Cheesy         |   5   |  Bestseller |
+          | Pizza2       | Spicy          |   30  |  Bestseller |
 
   Scenario: A product should have a category
     Given I visit the landing page
