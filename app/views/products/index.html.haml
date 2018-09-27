@@ -6,4 +6,5 @@
         %p= product.name
         %p= product.description
         %p= number_to_currency(product.price, unit: "kr", format: "%n %u")
+        %p= add_to_cart(product)        
     
