@@ -3,7 +3,7 @@
         %a{href: "products#show"} Products
         %li 
             = shop_icon_quantity
-            %a{href:"/checkout/"} 
-                %img(src="cart.png")
-            %a{href: "products#show"} Login
+            %a{href:"/checkout/"} Checkout
+            %a{href: "/users/sign_in"} Login
             %a{href: "/users/sign_up"} Signup
+            %li= link_to 'Logout', destroy_user_session_path, method: :delete
