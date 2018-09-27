@@ -6,16 +6,24 @@ Feature: Product Categories
   Background: 
     Given the following categories exists
     | group      |
-    | Bestseller |
+    | Starter    |
+    | Main       |
+    | Dessert    |
+
   
     Given the following products exists    
           | name         | description    | price | category    |
-          | Pizza1       | Cheesy         |   5   |  Bestseller |
-          | Pizza2       | Spicy          |   30  |  Bestseller |
-
+          | Pizza1       | Cheesy         |   5   |  Main       |
+          | Pizza2       | Spicy          |   30  |  Main       |
+          | Cheese Stick | Spicy          |   30  |  Starter    |
+          | Tomato       | Spicy          |   30  |  Starter    |
+          | Cream        | Spicy          |   30  |  Dessert    |
+    
   Scenario: A product should have a category
     Given I visit the landing page
-    Then I should see "Pizza1"
+    Then I should see "5.00 kr" for "Pizza1"
+    And I should see "Spicy" for "Cheese Stick"
+    And I should see "30.00 kr" for "Cream"
 
     
    
