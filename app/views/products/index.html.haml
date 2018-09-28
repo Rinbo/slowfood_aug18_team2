@@ -3,12 +3,12 @@
   %div.wrapper
 
   %div.wrapper
-    %button.tabs{:onclick => "openDiv('starter')"} Starter
+    %button.tabs{:onclick => "openDiv('starters')"} Starters
     %button.tabs{:onclick => "openDiv('maincourse')"} Main Course
     %button.tabs{:onclick => "openDiv('desserts')"} Desserts
     %button.tabs{:onclick => "openDiv('sides')"} Side Orders and Drinks
   
-    #starter.tabCategory{:style => "display:block"}
+    #starter.tab_categories{:style => "display:block"}
       - @products.each do |product|
         %div.food-tile{id: dom_id(product)}
           %p= product.name
@@ -16,11 +16,11 @@
           %p= number_to_currency(product.price, unit: "kr", format: "%n %u")
           %p= add_to_cart(product)        
     
-    #maincourse.tabCategory
+    #maincourse.tab_categories
       %p here all main
 
-    #desserts.tabCategory
+    #desserts.tab_categories
       %p here all desserts
 
-    #sides.tabCategory
+    #sides.tab_categories
       %p here all sides

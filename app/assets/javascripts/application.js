@@ -15,12 +15,9 @@
 //= require turbolinks
 //= require cartify/application
 //= require_tree .
-function openDiv(cat) {
-    let i, tabCategory;
-    tabCategory = document.getElementsByClassName("tabCategory");
-    for (i = 0; i < tabCategory.length; i++) {
-        tabCategory[i].style.display = "none";
-        }
-        document.getElementById(cat).style.display = "block";
+function openDiv(categories) {
+    let i, tab_categories;
+    tab_categories = document.querySelectorAll(".tab_categories");
+    tab_categories.forEach( (e) => e.style.display = "none");
+    document.getElementById(categories).style.display = "block";
     }
-    document.getElementsByClassName("tabs")[0].click()
