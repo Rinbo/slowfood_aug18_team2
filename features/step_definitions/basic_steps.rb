@@ -35,8 +35,25 @@ Given("I am logged in as {string}") do |user_name|
   login_as @user
 end
 
+When("I click {string} button") do |link_name|
+  click_on link_name
+end
 
+Then("I should be on product page") do
+  visit products_path
+end
 
+Then("I should be on login page") do
+  visit new_user_session_path
+end
+
+Then("I should be on signup page") do
+  visit new_user_registration_path
+end
+
+Then("I should be on cart page") do
+  visit cartify.cart_path
+end
 
 
 
