@@ -11,8 +11,10 @@ Scenario: User can navigate different pages by using buttons
     Then I should be on product page
     When I click "Login" button
     Then I should be on login page
-    When I click "Signup" button
+    When I visit the landing page
+    And I click "Signup" button
     Then I should be on signup page
-    When I click "Checkout" button
-    Then I should see "Please add some products before attempting a checkout"
+    When I visit the landing page
+    And I click "Cart" button
+    Then I should be on cart page
 

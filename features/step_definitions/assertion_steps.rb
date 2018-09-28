@@ -24,3 +24,7 @@ end
 Then("I should be on signup page") do
   visit new_user_registration_path
 end
+
+Then("I should be on cart page") do
+  visit cartify.cart_path
+end
