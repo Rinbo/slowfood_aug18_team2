@@ -54,6 +54,3 @@ end
 Then("I should be on cart page") do
   visit cartify.cart_path
 end
-
-
-
