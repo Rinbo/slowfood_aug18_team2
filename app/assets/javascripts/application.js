@@ -20,4 +20,4 @@ function openDiv(categories) {
         tabCategories = document.querySelectorAll(".tab-categories");
         tabCategories.forEach( (tab) => tab.style.display = "none");
     document.getElementById(categories).style.display = "block";
-    }
+}
