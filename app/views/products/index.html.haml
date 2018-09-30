@@ -1,16 +1,16 @@
+= render 'partials/navbar'
 %section.container.mx-auto.px-4
   %h1.text-indigo.font-semibold.mx-2 Food store  
   %div.container.mx-auto.px-4#Store
-    %button.tabs{:onclick => "openDiv('starters')"} Starters
-    %button.tabs{:onclick => "openDiv('maincourse')"} Main Course
-    %button.tabs{:onclick => "openDiv('desserts')"} Desserts
-    %button.tabs{:onclick => "openDiv('sides')"} Side Orders and Drinks
-  - @categories.each do |category|
-    %h4.mb-6= category.name
-    - category.products.each do |product|
-      %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(product)}
-                
-        %img.w-full.h-auto{src: image_generator[category.name.to_sym][product.name.to_sym]}/
+    %button.p-2.tabs{:onclick => "openDiv('starters')"} Starters
+    %button.p-2.tabs{:onclick => "openDiv('maincourse')"} Main Course
+    %button.p-2.tabs{:onclick => "openDiv('desserts')"} Desserts
+    %button.p-2.tabs{:onclick => "openDiv('beverages')"} Beverages  
+  #starters.tab-categories.block  
+    %h4.m-6= @starter.name + 's'
+    - @starter.products.each do |product|
+      %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(product)}                
+        %img.w-full.h-auto{src: image_generator[@starter.name.to_sym][product.name.to_sym]}/
         .px-6.py-4.h-32
           .font-bold.text-2xl.mb-2 
             = product.name
@@ -21,14 +21,51 @@
             = number_to_currency(product.price, unit: "kr", format: "%n %u")
           %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
             = add_to_cart(product)
-  #starter.tab-categories.hidden.block
-    %p here all starters
     
   #maincourse.tab-categories.hidden
-    %p here all main
+    %h4.m-6= @main.name + 'courses'
+    - @main.products.each do |product|
+      %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(product)}                
+        %img.w-full.h-auto{src: image_generator[@main.name.to_sym][product.name.to_sym]}/
+        .px-6.py-4.h-32
+          .font-bold.text-2xl.mb-2 
+            = product.name
+          %p.text-grey-darker.text-2xl
+            = product.description
+        .px-6.py-4
+          %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+            = number_to_currency(product.price, unit: "kr", format: "%n %u")
+          %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+            = add_to_cart(product)
 
   #desserts.tab-categories.hidden
-    %p here all desserts
+    %h4.m-6= @dessert.name + 's'
+    - @dessert.products.each do |product|
+      %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(product)}                
+        %img.w-full.h-auto{src: image_generator[@dessert.name.to_sym][product.name.to_sym]}/
+        .px-6.py-4.h-32
+          .font-bold.text-2xl.mb-2 
+            = product.name
+          %p.text-grey-darker.text-2xl
+            = product.description
+        .px-6.py-4
+          %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+            = number_to_currency(product.price, unit: "kr", format: "%n %u")
+          %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+            = add_to_cart(product)
 
-  #sides.tab-categories.hidden
-    %p here all sides
+  #beverages.tab-categories.hidden
+    %h4.m-6= @beverage.name + 's'
+    - @beverage.products.each do |product|
+      %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(product)}                
+        %img.w-full.h-auto{src: image_generator[@beverage.name.to_sym][product.name.to_sym]}/
+        .px-6.py-4.h-32
+          .font-bold.text-2xl.mb-2 
+            = product.name
+          %p.text-grey-darker.text-2xl
+            = product.description
+        .px-6.py-4
+          %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+            = number_to_currency(product.price, unit: "kr", format: "%n %u")
+          %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+            = add_to_cart(product)
