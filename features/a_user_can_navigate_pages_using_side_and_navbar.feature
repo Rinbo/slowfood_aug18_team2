@@ -15,3 +15,5 @@ Scenario: User can navigate different pages by using buttons
     And I click "Signup" button
     Then I should be on signup page
     When I visit the landing page
+    And I click "Cart" button
+    Then I should be on cart page
