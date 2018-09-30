@@ -16,6 +16,7 @@ Bundler.require(*Rails.groups)
 module SlowFood
   class Application < Rails::Application
     config.load_defaults 5.2
+    config.action_controller.include_all_helpers = true
     config.generators do |generate|
       generate.helper false
       generate.assets false
