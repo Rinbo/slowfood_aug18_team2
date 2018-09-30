@@ -1,4 +1,4 @@
-%h1.text-indigo.font-semibold Le Délicieux
+%h1.text-indigo.font-semibold.mx-2 Le Délicieux
 
 %section.container.mx-auto.px-4#Welcome
     %div
@@ -7,11 +7,11 @@
 
 %section.container.mx-auto.px-4#Assortment
     %h2.text-indigo.mt-16.mb-10 A selection of our delicious assortment
-    %div.flex.justify-between
+    %section.container.mx-auto.px-4
     - @categories.each do |category|
-        %div.max-w-sm.rounded.overflow-hidden.shadow-lg.mb-16{id: dom_id(category.products.first)}
+        %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(category.products.first)}
             %img.w-full.h-auto{:alt => "Sunset in the mountains", :src => "https://tailwindcss.com/img/card-top.jpg"}/
-            .px-6.py-4
+            .px-6.py-4.h-32
                 .font-bold.text-2xl.mb-2 
                     = category.products.first.name
                 %p.text-grey-darker.text-2xl
