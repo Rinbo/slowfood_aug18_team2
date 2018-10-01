@@ -2,10 +2,10 @@
 %section.container.mx-auto.px-4
   %h1.text-indigo.font-semibold.mx-2 Food store  
   %div.container.mx-auto.px-4#Store
-    %button.p-2.tabs{onclick: "openDiv('starters')"} Starters
-    %button.p-2.tabs{onclick: "openDiv('maincourse')"} Main Course
-    %button.p-2.tabs{onclick: "openDiv('desserts')"} Desserts
-    %button.p-2.tabs{onclick: "openDiv('beverages')"} Beverages  
+    %button.p-2.tabs{:onclick => "openDiv('starters')"} Starters
+    %button.p-2.tabs{:onclick => "openDiv('maincourse')"} Main Course
+    %button.p-2.tabs{:onclick => "openDiv('desserts')"} Desserts
+    %button.p-2.tabs{:onclick => "openDiv('beverages')"} Beverages  
   #starters.tab-categories.block  
     %h4.m-6= @starter.name + 's'
     - @starter.products.each do |product|
