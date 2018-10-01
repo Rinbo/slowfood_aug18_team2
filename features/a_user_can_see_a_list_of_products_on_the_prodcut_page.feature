@@ -5,20 +5,21 @@ Feature: View products
 
   Background:
     Given the following categories exists
-    | name       |
-    | Starter    |
-    | Main       |
-    | Dessert    |
-    | Beverage   |
+      | name       |
+      | Starter    |
+      | Main       |
+      | Dessert    |
+      | Beverage   |
     
     Given the following products exists
     Given the following products exists    
-    | name         | description    | price | category    |
-    | Pizza        | Cheesy         |   5   |  Main       |
-    | Hamburger    | Spicy          |   30  |  Main       |
-    | Sallad       | Spicy          |   30  |  Starter    |
-    | Tacos        | Spicy          |   30  |  Starter    |
-    | Pie          | Spicy          |   30  |  Dessert    |
+      | name         | description    | price | category    |
+      | Pizza        | Cheesy         |   5   |  Main       |
+      | Hamburger    | Spicy          |   30  |  Main       |
+      | Sallad       | Spicy          |   30  |  Starter    |
+      | Tacos        | Spicy          |   30  |  Starter    |
+      | Pie          | Spicy          |   30  |  Dessert    |
+      | Coca Cola    | Sweet          |   20  |  Beverage   |
     And I visit the product page
   
   Scenario: View list of articles on the product page    
