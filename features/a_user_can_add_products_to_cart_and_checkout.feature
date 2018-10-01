@@ -6,21 +6,27 @@ Feature: Checkout Products
 
 Background:
     Given the following categories exists
-    | name      |
+    | name       |
     | Starter    |
     | Main       |
+    | Dessert    |
+    | Beverage   |
     
-    Given the following products exists
-        | name         | description    | price | category |
-        | Pizza1       | Cheesy         |   5   | Main     |
-        | Pizza2       | Spicy          |   30  | Main     |
+    Given the following products exists    
+    | name         | description    | price | category    |
+    | Pizza        | Cheesy         |   5   |  Main       |
+    | Hamburger    | Spicy          |   30  |  Main       |
+    | Sallad       | Spicy          |   30  |  Starter    |
+    | Tacos        | Spicy          |   30  |  Starter    |
+    | Pie          | Spicy          |   30  |  Dessert    |
     And the following users exist
-        | name         | email                  |       
-        | Robin        | robin@example.com      |
+    | name         | email                  |       
+    | Robin        | robin@example.com      |
     And I am logged in as "Robin"
     And I visit the product page
        
-Scenario: A user can add products to cart 
-    When I click "Add to cart" button on "Pizza1" product
-    And I click "Add to cart" button on "Pizza2" product
+Scenario: A user can add products to cart
+    Given I click "Main Course" button
+    When I click "Add to cart" button on "Pizza" product
+    And I click "Add to cart" button on "Hamburger" product
     Then I should see "2 items"
