@@ -7,7 +7,7 @@ Background:
     Given I visit the landing page
 
 Scenario: User can navigate different pages by using buttons
-    When I click "Products" button
+    When I click "Menu" button
     Then I should be on product page
     When I click "Login" button
     Then I should be on login page

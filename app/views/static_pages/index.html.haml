@@ -1,17 +1,24 @@
-= render 'partials/navbar' 
-%h1 Le Délicieux
+= render 'partials/navbar'
+%h1.text-indigo.font-semibold.mx-2 Le Délicieux
 
-%section.container#Welcome
+%section.container.mx-auto.px-4#Welcome
     %div
-        %p Welcome to Le Délicieux Cuisine
-        %p We invited the best chefs all over the world to serve you the best food
-%section.container#BestSeller
-    %h1 Best Selling Products
-    %div.grid-container
-        - @categories.each do |category|
-            %div.grid-content{id: dom_id(category.products.first)}
-                %p= category.products.first.name
-                %p= category.products.first.description
-                %p= number_to_currency(category.products.first.price, unit: "kr", format: "%n %u")
-                %p= add_to_cart(category.products.first)  
-            
+        %p.text-2xl.bg-indigo-lighter.pt-6.px-6 Welcome to Le Délicieux Cuisine
+        %p.text-2xl.bg-indigo-lighter.pb-6.px-6 We invited the best chefs from all over the world to serve you the best food
+
+%section.container.mx-auto.px-4#Assortment
+    %h2.text-indigo.mt-16.mb-10 A selection of our delicious assortment
+    %section.container.mx-auto.px-4
+    - @categories.each do |category|
+        %div.inline-block.max-w-xs.rounded.overflow-hidden.shadow-lg.mb-16.mx-6{id: dom_id(category.products.first)}
+            %img.w-full.h-auto{src: image_generator[category.name.to_sym][category.products.first.name.to_sym]}/
+            .px-6.py-4.h-32
+                .font-bold.text-2xl.mb-2 
+                    = category.products.first.name
+                %p.text-grey-darker.text-2xl
+                    = category.products.first.description
+            .px-6.py-4
+                %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+                    = number_to_currency(category.products.first.price, unit: "kr", format: "%n %u")
+                %span.inline-block.bg-grey-lighter.rounded-full.px-3.py-1.text-2xl.font-semibold.text-grey-darker.mr-2
+                    = add_to_cart(category.products.first)
