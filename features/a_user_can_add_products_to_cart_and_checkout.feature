@@ -29,5 +29,6 @@ Background:
 Scenario: A user can add products to cart
     Given I click "Main Course" button
     When I click "Add to cart" button on "Pizza" product
+    And I click "Main Course" button
     And I click "Add to cart" button on "Hamburger" product
     Then I should see "2 items"

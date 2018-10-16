@@ -19,7 +19,7 @@ chrome_options << 'headless' if ENV['CI'] == 'true'
 Capybara.register_driver :chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
       chromeOptions: {
-          args: %w[ headless no-sandbox disable-popup-blocking ]
+          args: %w[ no-sandbox disable-popup-blocking ]
       }
   )
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
